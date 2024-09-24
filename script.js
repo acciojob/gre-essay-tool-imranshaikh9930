@@ -1,14 +1,9 @@
-const inputVal = document.getElementById("evaluatedText");
-const h3Text = document.getElementById("wordCount");
+const textBox = document.getElementById('evaluatedText');
+const wordCountDisplay = document.getElementById('wordCount');
 
-
-inputVal.addEventListener("input",(e)=>{
-
-    // console.log(e);
-
-    const text = inputVal.value.trim("");
-    const wordCount = text === "" ? 0 : text.split(/\s+/).filter(word => word).length;
-
-    h3Text.innerText = wordCount;
-
-})
+textBox.addEventListener('input', () => {
+  const text = textBox.value.trim(); // Remove extra spaces at the start and end
+  const words = text.split(/\s+/).filter(word => word.length > 0); // Filter out empty strings
+  const wordCount = words.length;
+  wordCountDisplay.textContent = isNaN(wordCount) ? 0 : wordCount;
+});
