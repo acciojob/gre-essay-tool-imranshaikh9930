@@ -7,8 +7,8 @@ inputVal.addEventListener("input",(e)=>{
     // console.log(e);
 
     const text = inputVal.value.trim("");
-    const words = text ? text.split(/\s+/):[];
+    const wordCount = text === "" ? 0 : text.split(/\s+/).filter(word => word).length;
 
-    h3Text.innerText = words.length
+    h3Text.innerText = wordCount;
 
 })
